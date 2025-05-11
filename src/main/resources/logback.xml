@@ -1,0 +1,17 @@
+<configuration>
+    <appender name= "ROLLING_FILE" class= "ch.qos.logback.core.rolling.RollingFileAppender" >
+        <file> logs\hippodrome.log </file>
+        <rollingPolicy class= "ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy" >
+            <fileNamePattern> hippodrome-%d{yyyy-MM-dd}.%i.log </fileNamePattern>
+            <maxFileSize> 1MB </maxFileSize>
+            <maxHistory> 7 </maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern> %d{HH:mm:ss.SSS} %-5level %logger{36} - %msg%n </pattern>
+        </encoder>
+    </appender>
+
+    <root level= "DEBUG" >
+        <appender-ref ref= "ROLLING_FILE" />
+    </root>
+</configuration>
